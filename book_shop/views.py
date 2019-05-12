@@ -6,7 +6,7 @@ from categories.models import Category
 
 
 def show_main_page(request):
-    books = Book.objects.order_by('-id')[:5]
+    books = Book.objects.order_by('-id')[:6]
     categories = Category.objects.all()[:5]
 
     result = render_to_string('index.html', {

@@ -5,6 +5,7 @@ class Book(models.Model):
     name = models.CharField(max_length=30)
     description = models.TextField(max_length=300)
     price = models.IntegerField()
+    image = models.CharField(max_length=1000)
     category = models.ForeignKey(
         to='categories.Category',
         related_name='books',

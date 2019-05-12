@@ -15,7 +15,7 @@ def show_books(request):
 
 def show_book_detail(request, book_id):
     book = Book.objects.get(id=book_id)
-    result = f'{book.name}<hr>Категория: {book.category.name}<hr>Описание книги: {book.description}<hr> Цена: {book.price} рублей'
+    result = f'{book.name}<br><img src="{book.image}"><hr>Категория: {book.category.name}<hr>Описание книги: {book.description}<hr> Цена: {book.price} рублей'
 
     return HttpResponse(result)
 

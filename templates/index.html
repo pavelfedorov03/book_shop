@@ -34,13 +34,21 @@
             display: inline-block;
         }
         .c{
-            display: inline-block;
             box-sizing: border-box;
-            width: calc(50% - 2px);
-            margin: 0;
+            width: 70%;
+            position: relative;
+            float: left;
+            background-color: ivory;
+            margin-top: 20px;
+        }
+        .d{
+            float: right;
+            box-sizing: border-box;
+            width: 29%;
             position: relative;
             background-color: ivory;
             margin-top: 20px;
+            padding-bottom: 20px;
         }
         .conteiner{
             position: relative;
@@ -50,11 +58,40 @@
         }
         .b{
             text-align: center;
-            font-size: 50px;
+            font-size: 40px;
+        }
+        .e{
+            text-align: center;
+            font-size: 40px;
         }
         li{
-            margin-left: 40px;
+            margin-left: 70px;
             font-size: 30px;
+        }
+        h1{
+            margin: 0;
+        }
+        img{
+            height: 64px;
+            width: 64px;
+            float: left;
+        }
+        .div{
+            width: 50%;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+            height: 200px;
+        }
+        body{
+            font-size: 18px;
+        }
+        .f{
+            margin-bottom: -20px;
+            margin-top: -10px;
+        }
+        span{
+            font-size: 24px;
         }
     </style>
 </head>
@@ -73,16 +110,22 @@
     </div>
 <div class="conteiner">
     <div class="c">
-        <h1 class="b">Лучшие категории</h1>
+        <h1 class="b">Новинки из мира книг</h1><hr>
+           {% for book in books %}
+               <div class="div">
+               <img src="{{ book.image }}">
+               <h1 class="f"><a href="/books/{{ book.id }}/">{{ book.name }}</a></h1><br>
+               <span>Категория: {{ book.category }}</span><br>
+               Описание книги: {{ book.description }}<br>
+               Цена: {{ book.price }} рублей
+                </div>
+           {% endfor %}
+    </div>
+    <div class="d">
+        <h1 class="e">Лучшие категории</h1>
             {% for category in categories %}
                 <li>{{ category.name }}</li>
             {% endfor %}
-    </div>
-    <div class="c">
-        <h1 class="b">Новинки из мира книг</h1>
-           {% for book in books %}
-               <li>{{ book.name }}</li>
-           {% endfor %}
     </div>
 </div>
 </body>
