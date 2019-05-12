@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book shop</title>
+    <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
+    <style>
+        body{
+            margin: 0;
+        }
+        #shapka{
+            width: 100%;
+            height: 60px;
+            background-color: lightgreen;
+            position: relative;
+        }
+        .a{
+            color: white;
+            padding-left: 15px;
+            font-size: 43px;
+            margin-top: 0;
+            font-family: 'Akronim', cursive;
+        }
+        #a2{
+            width: 1300px;
+            display: inline-block;
+        }
+        a{
+            text-decoration: none;
+            font-size: 40px;
+        }
+        #a3{
+            width: 30px;
+            display: inline-block;
+        }
+        .c{
+            display: inline-block;
+            box-sizing: border-box;
+            width: calc(50% - 2px);
+            margin: 0;
+            position: relative;
+            background-color: ivory;
+            margin-top: 20px;
+        }
+        .conteiner{
+            position: relative;
+            width: 80%;
+            box-sizing: border-box;
+            margin-left: 10%;
+        }
+        .b{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="shapka">
+        <h1 class="a">Book shop
+            <div id="a2"></div>
+            <a href="/books/">
+                Книги
+            </a>
+            <div id="a3"></div>
+            <a href="/categories/">
+                Категории
+            </a>
+        </h1>
+    </div>
+<div class="conteiner">
+    <div class="c">
+        <h1 class="b">Лучшие категории</h1>
+            {% for category in categories %}
+                <li>{{ category.name }}</li>
+            {% endfor %}
+    </div>
+    <div class="c">
+        <h1 class="b">Новинки из мира книг</h1>
+           {% for book in books %}
+               <li>{{ book.name }}</li>
+           {% endfor %}
+    </div>
+</div>
+</body>
+</html>
